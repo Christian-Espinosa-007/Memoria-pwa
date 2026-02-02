@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Memoria - Listas</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Memoria: Listas</h1>
+    <button id="installBtn" class="ghost" hidden>Instalar</button>
+  </header>
+
+  <main class="container">
+    <!-- HOME -->
+    <section id="screenHome" class="screen">
+      <div class="card">
+        <h2>Entrena 5 minutos</h2>
+        <p class="muted">Memoriza una lista, recuérdala y sube de nivel.</p>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="statLabel">Racha</div>
+            <div class="statValue" id="streakValue">0</div>
+          </div>
+          <div class="stat">
+            <div class="statLabel">Nivel</div>
+            <div class="statValue" id="levelValue">1</div>
+          </div>
+          <div class="stat">
+            <div class="statLabel">Mejor</div>
+            <div class="statValue" id="bestValue">—</div>
+          </div>
+        </div>
+
+        <button id="startBtn" class="primary">Entrenar ahora</button>
+        <button id="historyBtn" class="secondary">Historial</button>
+      </div>
+
+      <div id="historyPanel" class="card" hidden>
+        <h3>Últimas sesiones</h3>
+        <div id="historyList" class="history"></div>
+      </div>
+    </section>
+
+    <!-- MEMORIZA -->
+    <section id="screenStudy" class="screen" hidden>
+      <div class="card">
+        <div class="row">
+          <h2>Memoriza</h2>
+          <div class="pill">Nivel <span id="studyLevel">1</span></div>
+        </div>
+        <p class="muted">Tienes <strong><span id="studyTime">30</span>s</strong> para memorizar:</p>
+
+        <div id="wordList" class="wordList"></div>
+
+        <div class="row">
+          <div class="timer">⏱️ <span id="timerValue">30</span>s</div>
+          <button id="readyBtn" class="primary">Listo</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECUERDA + RESULTADOS -->
+    <section id="screenRecall" class="screen" hidden>
+      <div class="card">
+        <h2>Recuerda</h2>
+        <p class="muted">Escribe una palabra por línea.</p>
+
+        <textarea id="recallInput" rows="10" placeholder="Ejemplo:
+manzana
+coche
+montaña"></textarea>
+
+        <div class="row">
+          <button id="gradeBtn" class="primary">Calificar</button>
+          <button id="giveUpBtn" class="ghost">Ver lista</button>
+        </div>
+      </div>
+
+      <div id="resultCard" class="card" hidden>
+        <div class="row">
+          <h3>Resultado</h3>
+          <div class="pill"><span id="scorePct">0</span>%</div>
+        </div>
+
+        <p>
+          Aciertos: <strong><span id="correctCount">0</span></strong> /
+          <span id="totalCount">0</span>
+        </p>
+
+        <div class="grid2">
+          <div>
+            <h4>Faltantes</h4>
+            <div id="missingList" class="chips"></div>
+          </div>
+          <div>
+            <h4>Extras</h4>
+            <div id="extraList" class="chips"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <button id="againBtn" class="secondary">Otra ronda</button>
+          <button id="homeBtn" class="primary">Home</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
